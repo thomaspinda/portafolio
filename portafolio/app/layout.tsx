@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Lacquer } from "next/font/google";
-import localFont from "next/font/local";
 import "./globals.css";
+import { Ubuntu } from 'next/font/google';
 
-const myLocalFont = localFont({
-  src: "../public/fonts/UbuntuSans-VariableFont_wdth,wght.ttf",
-  weight: "400",
-  style: "normal", 
-  variable: "--font-ubuntu-sans",
+// layout.tsx
+const ubuntu = Ubuntu({
+  subsets: ["latin"],
+  variable: "--font-ubuntu",
+  weight: "300"
 });
+
 
 
 const geistSans = Geist({
@@ -32,9 +33,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${myLocalFont.variable} ${myLocalFont.className}`}>
+    <html lang="es">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${ubuntu.className} antialiased`}
       >
         {children}
       </body>
